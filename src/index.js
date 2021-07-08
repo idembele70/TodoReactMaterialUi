@@ -1,3 +1,10 @@
 import { render } from "react-dom";
-
-render(<div>Hello World</div>, document.querySelector("#root"));
+import React from "react";
+import TodoList from "./components/TodoList";
+import './style/index.css';
+render(
+  <div>
+    <TodoList />
+  </div>,
+  document.querySelector("#root")
+);
