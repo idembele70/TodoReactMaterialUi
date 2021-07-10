@@ -83979,60 +83979,341 @@ Object.keys(_Zoom).forEach(function (key) {
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-},{"./colors":"node_modules/@material-ui/core/esm/colors/index.js","./styles":"node_modules/@material-ui/core/esm/styles/index.js","./utils":"node_modules/@material-ui/core/esm/utils/index.js","./Accordion":"node_modules/@material-ui/core/esm/Accordion/index.js","./AccordionActions":"node_modules/@material-ui/core/esm/AccordionActions/index.js","./AccordionDetails":"node_modules/@material-ui/core/esm/AccordionDetails/index.js","./AccordionSummary":"node_modules/@material-ui/core/esm/AccordionSummary/index.js","./AppBar":"node_modules/@material-ui/core/esm/AppBar/index.js","./Avatar":"node_modules/@material-ui/core/esm/Avatar/index.js","./Backdrop":"node_modules/@material-ui/core/esm/Backdrop/index.js","./Badge":"node_modules/@material-ui/core/esm/Badge/index.js","./BottomNavigation":"node_modules/@material-ui/core/esm/BottomNavigation/index.js","./BottomNavigationAction":"node_modules/@material-ui/core/esm/BottomNavigationAction/index.js","./Box":"node_modules/@material-ui/core/esm/Box/index.js","./Breadcrumbs":"node_modules/@material-ui/core/esm/Breadcrumbs/index.js","./Button":"node_modules/@material-ui/core/esm/Button/index.js","./ButtonBase":"node_modules/@material-ui/core/esm/ButtonBase/index.js","./ButtonGroup":"node_modules/@material-ui/core/esm/ButtonGroup/index.js","./Card":"node_modules/@material-ui/core/esm/Card/index.js","./CardActionArea":"node_modules/@material-ui/core/esm/CardActionArea/index.js","./CardActions":"node_modules/@material-ui/core/esm/CardActions/index.js","./CardContent":"node_modules/@material-ui/core/esm/CardContent/index.js","./CardHeader":"node_modules/@material-ui/core/esm/CardHeader/index.js","./CardMedia":"node_modules/@material-ui/core/esm/CardMedia/index.js","./Checkbox":"node_modules/@material-ui/core/esm/Checkbox/index.js","./Chip":"node_modules/@material-ui/core/esm/Chip/index.js","./CircularProgress":"node_modules/@material-ui/core/esm/CircularProgress/index.js","./ClickAwayListener":"node_modules/@material-ui/core/esm/ClickAwayListener/index.js","./Collapse":"node_modules/@material-ui/core/esm/Collapse/index.js","./Container":"node_modules/@material-ui/core/esm/Container/index.js","./CssBaseline":"node_modules/@material-ui/core/esm/CssBaseline/index.js","./Dialog":"node_modules/@material-ui/core/esm/Dialog/index.js","./DialogActions":"node_modules/@material-ui/core/esm/DialogActions/index.js","./DialogContent":"node_modules/@material-ui/core/esm/DialogContent/index.js","./DialogContentText":"node_modules/@material-ui/core/esm/DialogContentText/index.js","./DialogTitle":"node_modules/@material-ui/core/esm/DialogTitle/index.js","./Divider":"node_modules/@material-ui/core/esm/Divider/index.js","./Drawer":"node_modules/@material-ui/core/esm/Drawer/index.js","./ExpansionPanel":"node_modules/@material-ui/core/esm/ExpansionPanel/index.js","./ExpansionPanelActions":"node_modules/@material-ui/core/esm/ExpansionPanelActions/index.js","./ExpansionPanelDetails":"node_modules/@material-ui/core/esm/ExpansionPanelDetails/index.js","./ExpansionPanelSummary":"node_modules/@material-ui/core/esm/ExpansionPanelSummary/index.js","./Fab":"node_modules/@material-ui/core/esm/Fab/index.js","./Fade":"node_modules/@material-ui/core/esm/Fade/index.js","./FilledInput":"node_modules/@material-ui/core/esm/FilledInput/index.js","./FormControl":"node_modules/@material-ui/core/esm/FormControl/index.js","./FormControlLabel":"node_modules/@material-ui/core/esm/FormControlLabel/index.js","./FormGroup":"node_modules/@material-ui/core/esm/FormGroup/index.js","./FormHelperText":"node_modules/@material-ui/core/esm/FormHelperText/index.js","./FormLabel":"node_modules/@material-ui/core/esm/FormLabel/index.js","./Grid":"node_modules/@material-ui/core/esm/Grid/index.js","./GridList":"node_modules/@material-ui/core/esm/GridList/index.js","./GridListTile":"node_modules/@material-ui/core/esm/GridListTile/index.js","./GridListTileBar":"node_modules/@material-ui/core/esm/GridListTileBar/index.js","./Grow":"node_modules/@material-ui/core/esm/Grow/index.js","./Hidden":"node_modules/@material-ui/core/esm/Hidden/index.js","./Icon":"node_modules/@material-ui/core/esm/Icon/index.js","./IconButton":"node_modules/@material-ui/core/esm/IconButton/index.js","./ImageList":"node_modules/@material-ui/core/esm/ImageList/index.js","./ImageListItem":"node_modules/@material-ui/core/esm/ImageListItem/index.js","./ImageListItemBar":"node_modules/@material-ui/core/esm/ImageListItemBar/index.js","./Input":"node_modules/@material-ui/core/esm/Input/index.js","./InputAdornment":"node_modules/@material-ui/core/esm/InputAdornment/index.js","./InputBase":"node_modules/@material-ui/core/esm/InputBase/index.js","./InputLabel":"node_modules/@material-ui/core/esm/InputLabel/index.js","./LinearProgress":"node_modules/@material-ui/core/esm/LinearProgress/index.js","./Link":"node_modules/@material-ui/core/esm/Link/index.js","./List":"node_modules/@material-ui/core/esm/List/index.js","./ListItem":"node_modules/@material-ui/core/esm/ListItem/index.js","./ListItemAvatar":"node_modules/@material-ui/core/esm/ListItemAvatar/index.js","./ListItemIcon":"node_modules/@material-ui/core/esm/ListItemIcon/index.js","./ListItemSecondaryAction":"node_modules/@material-ui/core/esm/ListItemSecondaryAction/index.js","./ListItemText":"node_modules/@material-ui/core/esm/ListItemText/index.js","./ListSubheader":"node_modules/@material-ui/core/esm/ListSubheader/index.js","./Menu":"node_modules/@material-ui/core/esm/Menu/index.js","./MenuItem":"node_modules/@material-ui/core/esm/MenuItem/index.js","./MenuList":"node_modules/@material-ui/core/esm/MenuList/index.js","./MobileStepper":"node_modules/@material-ui/core/esm/MobileStepper/index.js","./Modal":"node_modules/@material-ui/core/esm/Modal/index.js","./NativeSelect":"node_modules/@material-ui/core/esm/NativeSelect/index.js","./NoSsr":"node_modules/@material-ui/core/esm/NoSsr/index.js","./OutlinedInput":"node_modules/@material-ui/core/esm/OutlinedInput/index.js","./Paper":"node_modules/@material-ui/core/esm/Paper/index.js","./Popover":"node_modules/@material-ui/core/esm/Popover/index.js","./Popper":"node_modules/@material-ui/core/esm/Popper/index.js","./Portal":"node_modules/@material-ui/core/esm/Portal/index.js","./Radio":"node_modules/@material-ui/core/esm/Radio/index.js","./RadioGroup":"node_modules/@material-ui/core/esm/RadioGroup/index.js","./RootRef":"node_modules/@material-ui/core/esm/RootRef/index.js","./Select":"node_modules/@material-ui/core/esm/Select/index.js","./Slide":"node_modules/@material-ui/core/esm/Slide/index.js","./Slider":"node_modules/@material-ui/core/esm/Slider/index.js","./Snackbar":"node_modules/@material-ui/core/esm/Snackbar/index.js","./SnackbarContent":"node_modules/@material-ui/core/esm/SnackbarContent/index.js","./Step":"node_modules/@material-ui/core/esm/Step/index.js","./StepButton":"node_modules/@material-ui/core/esm/StepButton/index.js","./StepConnector":"node_modules/@material-ui/core/esm/StepConnector/index.js","./StepContent":"node_modules/@material-ui/core/esm/StepContent/index.js","./StepIcon":"node_modules/@material-ui/core/esm/StepIcon/index.js","./StepLabel":"node_modules/@material-ui/core/esm/StepLabel/index.js","./Stepper":"node_modules/@material-ui/core/esm/Stepper/index.js","./SvgIcon":"node_modules/@material-ui/core/esm/SvgIcon/index.js","./SwipeableDrawer":"node_modules/@material-ui/core/esm/SwipeableDrawer/index.js","./Switch":"node_modules/@material-ui/core/esm/Switch/index.js","./Tab":"node_modules/@material-ui/core/esm/Tab/index.js","./Table":"node_modules/@material-ui/core/esm/Table/index.js","./TableBody":"node_modules/@material-ui/core/esm/TableBody/index.js","./TableCell":"node_modules/@material-ui/core/esm/TableCell/index.js","./TableContainer":"node_modules/@material-ui/core/esm/TableContainer/index.js","./TableFooter":"node_modules/@material-ui/core/esm/TableFooter/index.js","./TableHead":"node_modules/@material-ui/core/esm/TableHead/index.js","./TablePagination":"node_modules/@material-ui/core/esm/TablePagination/index.js","./TableRow":"node_modules/@material-ui/core/esm/TableRow/index.js","./TableSortLabel":"node_modules/@material-ui/core/esm/TableSortLabel/index.js","./Tabs":"node_modules/@material-ui/core/esm/Tabs/index.js","./TabScrollButton":"node_modules/@material-ui/core/esm/TabScrollButton/index.js","./TextField":"node_modules/@material-ui/core/esm/TextField/index.js","./TextareaAutosize":"node_modules/@material-ui/core/esm/TextareaAutosize/index.js","./Toolbar":"node_modules/@material-ui/core/esm/Toolbar/index.js","./Tooltip":"node_modules/@material-ui/core/esm/Tooltip/index.js","./Typography":"node_modules/@material-ui/core/esm/Typography/index.js","./Unstable_TrapFocus":"node_modules/@material-ui/core/esm/Unstable_TrapFocus/index.js","./useMediaQuery":"node_modules/@material-ui/core/esm/useMediaQuery/index.js","./useScrollTrigger":"node_modules/@material-ui/core/esm/useScrollTrigger/index.js","./withMobileDialog":"node_modules/@material-ui/core/esm/withMobileDialog/index.js","./withWidth":"node_modules/@material-ui/core/esm/withWidth/index.js","./Zoom":"node_modules/@material-ui/core/esm/Zoom/index.js"}],"src/components/TodoList.jsx":[function(require,module,exports) {
+},{"./colors":"node_modules/@material-ui/core/esm/colors/index.js","./styles":"node_modules/@material-ui/core/esm/styles/index.js","./utils":"node_modules/@material-ui/core/esm/utils/index.js","./Accordion":"node_modules/@material-ui/core/esm/Accordion/index.js","./AccordionActions":"node_modules/@material-ui/core/esm/AccordionActions/index.js","./AccordionDetails":"node_modules/@material-ui/core/esm/AccordionDetails/index.js","./AccordionSummary":"node_modules/@material-ui/core/esm/AccordionSummary/index.js","./AppBar":"node_modules/@material-ui/core/esm/AppBar/index.js","./Avatar":"node_modules/@material-ui/core/esm/Avatar/index.js","./Backdrop":"node_modules/@material-ui/core/esm/Backdrop/index.js","./Badge":"node_modules/@material-ui/core/esm/Badge/index.js","./BottomNavigation":"node_modules/@material-ui/core/esm/BottomNavigation/index.js","./BottomNavigationAction":"node_modules/@material-ui/core/esm/BottomNavigationAction/index.js","./Box":"node_modules/@material-ui/core/esm/Box/index.js","./Breadcrumbs":"node_modules/@material-ui/core/esm/Breadcrumbs/index.js","./Button":"node_modules/@material-ui/core/esm/Button/index.js","./ButtonBase":"node_modules/@material-ui/core/esm/ButtonBase/index.js","./ButtonGroup":"node_modules/@material-ui/core/esm/ButtonGroup/index.js","./Card":"node_modules/@material-ui/core/esm/Card/index.js","./CardActionArea":"node_modules/@material-ui/core/esm/CardActionArea/index.js","./CardActions":"node_modules/@material-ui/core/esm/CardActions/index.js","./CardContent":"node_modules/@material-ui/core/esm/CardContent/index.js","./CardHeader":"node_modules/@material-ui/core/esm/CardHeader/index.js","./CardMedia":"node_modules/@material-ui/core/esm/CardMedia/index.js","./Checkbox":"node_modules/@material-ui/core/esm/Checkbox/index.js","./Chip":"node_modules/@material-ui/core/esm/Chip/index.js","./CircularProgress":"node_modules/@material-ui/core/esm/CircularProgress/index.js","./ClickAwayListener":"node_modules/@material-ui/core/esm/ClickAwayListener/index.js","./Collapse":"node_modules/@material-ui/core/esm/Collapse/index.js","./Container":"node_modules/@material-ui/core/esm/Container/index.js","./CssBaseline":"node_modules/@material-ui/core/esm/CssBaseline/index.js","./Dialog":"node_modules/@material-ui/core/esm/Dialog/index.js","./DialogActions":"node_modules/@material-ui/core/esm/DialogActions/index.js","./DialogContent":"node_modules/@material-ui/core/esm/DialogContent/index.js","./DialogContentText":"node_modules/@material-ui/core/esm/DialogContentText/index.js","./DialogTitle":"node_modules/@material-ui/core/esm/DialogTitle/index.js","./Divider":"node_modules/@material-ui/core/esm/Divider/index.js","./Drawer":"node_modules/@material-ui/core/esm/Drawer/index.js","./ExpansionPanel":"node_modules/@material-ui/core/esm/ExpansionPanel/index.js","./ExpansionPanelActions":"node_modules/@material-ui/core/esm/ExpansionPanelActions/index.js","./ExpansionPanelDetails":"node_modules/@material-ui/core/esm/ExpansionPanelDetails/index.js","./ExpansionPanelSummary":"node_modules/@material-ui/core/esm/ExpansionPanelSummary/index.js","./Fab":"node_modules/@material-ui/core/esm/Fab/index.js","./Fade":"node_modules/@material-ui/core/esm/Fade/index.js","./FilledInput":"node_modules/@material-ui/core/esm/FilledInput/index.js","./FormControl":"node_modules/@material-ui/core/esm/FormControl/index.js","./FormControlLabel":"node_modules/@material-ui/core/esm/FormControlLabel/index.js","./FormGroup":"node_modules/@material-ui/core/esm/FormGroup/index.js","./FormHelperText":"node_modules/@material-ui/core/esm/FormHelperText/index.js","./FormLabel":"node_modules/@material-ui/core/esm/FormLabel/index.js","./Grid":"node_modules/@material-ui/core/esm/Grid/index.js","./GridList":"node_modules/@material-ui/core/esm/GridList/index.js","./GridListTile":"node_modules/@material-ui/core/esm/GridListTile/index.js","./GridListTileBar":"node_modules/@material-ui/core/esm/GridListTileBar/index.js","./Grow":"node_modules/@material-ui/core/esm/Grow/index.js","./Hidden":"node_modules/@material-ui/core/esm/Hidden/index.js","./Icon":"node_modules/@material-ui/core/esm/Icon/index.js","./IconButton":"node_modules/@material-ui/core/esm/IconButton/index.js","./ImageList":"node_modules/@material-ui/core/esm/ImageList/index.js","./ImageListItem":"node_modules/@material-ui/core/esm/ImageListItem/index.js","./ImageListItemBar":"node_modules/@material-ui/core/esm/ImageListItemBar/index.js","./Input":"node_modules/@material-ui/core/esm/Input/index.js","./InputAdornment":"node_modules/@material-ui/core/esm/InputAdornment/index.js","./InputBase":"node_modules/@material-ui/core/esm/InputBase/index.js","./InputLabel":"node_modules/@material-ui/core/esm/InputLabel/index.js","./LinearProgress":"node_modules/@material-ui/core/esm/LinearProgress/index.js","./Link":"node_modules/@material-ui/core/esm/Link/index.js","./List":"node_modules/@material-ui/core/esm/List/index.js","./ListItem":"node_modules/@material-ui/core/esm/ListItem/index.js","./ListItemAvatar":"node_modules/@material-ui/core/esm/ListItemAvatar/index.js","./ListItemIcon":"node_modules/@material-ui/core/esm/ListItemIcon/index.js","./ListItemSecondaryAction":"node_modules/@material-ui/core/esm/ListItemSecondaryAction/index.js","./ListItemText":"node_modules/@material-ui/core/esm/ListItemText/index.js","./ListSubheader":"node_modules/@material-ui/core/esm/ListSubheader/index.js","./Menu":"node_modules/@material-ui/core/esm/Menu/index.js","./MenuItem":"node_modules/@material-ui/core/esm/MenuItem/index.js","./MenuList":"node_modules/@material-ui/core/esm/MenuList/index.js","./MobileStepper":"node_modules/@material-ui/core/esm/MobileStepper/index.js","./Modal":"node_modules/@material-ui/core/esm/Modal/index.js","./NativeSelect":"node_modules/@material-ui/core/esm/NativeSelect/index.js","./NoSsr":"node_modules/@material-ui/core/esm/NoSsr/index.js","./OutlinedInput":"node_modules/@material-ui/core/esm/OutlinedInput/index.js","./Paper":"node_modules/@material-ui/core/esm/Paper/index.js","./Popover":"node_modules/@material-ui/core/esm/Popover/index.js","./Popper":"node_modules/@material-ui/core/esm/Popper/index.js","./Portal":"node_modules/@material-ui/core/esm/Portal/index.js","./Radio":"node_modules/@material-ui/core/esm/Radio/index.js","./RadioGroup":"node_modules/@material-ui/core/esm/RadioGroup/index.js","./RootRef":"node_modules/@material-ui/core/esm/RootRef/index.js","./Select":"node_modules/@material-ui/core/esm/Select/index.js","./Slide":"node_modules/@material-ui/core/esm/Slide/index.js","./Slider":"node_modules/@material-ui/core/esm/Slider/index.js","./Snackbar":"node_modules/@material-ui/core/esm/Snackbar/index.js","./SnackbarContent":"node_modules/@material-ui/core/esm/SnackbarContent/index.js","./Step":"node_modules/@material-ui/core/esm/Step/index.js","./StepButton":"node_modules/@material-ui/core/esm/StepButton/index.js","./StepConnector":"node_modules/@material-ui/core/esm/StepConnector/index.js","./StepContent":"node_modules/@material-ui/core/esm/StepContent/index.js","./StepIcon":"node_modules/@material-ui/core/esm/StepIcon/index.js","./StepLabel":"node_modules/@material-ui/core/esm/StepLabel/index.js","./Stepper":"node_modules/@material-ui/core/esm/Stepper/index.js","./SvgIcon":"node_modules/@material-ui/core/esm/SvgIcon/index.js","./SwipeableDrawer":"node_modules/@material-ui/core/esm/SwipeableDrawer/index.js","./Switch":"node_modules/@material-ui/core/esm/Switch/index.js","./Tab":"node_modules/@material-ui/core/esm/Tab/index.js","./Table":"node_modules/@material-ui/core/esm/Table/index.js","./TableBody":"node_modules/@material-ui/core/esm/TableBody/index.js","./TableCell":"node_modules/@material-ui/core/esm/TableCell/index.js","./TableContainer":"node_modules/@material-ui/core/esm/TableContainer/index.js","./TableFooter":"node_modules/@material-ui/core/esm/TableFooter/index.js","./TableHead":"node_modules/@material-ui/core/esm/TableHead/index.js","./TablePagination":"node_modules/@material-ui/core/esm/TablePagination/index.js","./TableRow":"node_modules/@material-ui/core/esm/TableRow/index.js","./TableSortLabel":"node_modules/@material-ui/core/esm/TableSortLabel/index.js","./Tabs":"node_modules/@material-ui/core/esm/Tabs/index.js","./TabScrollButton":"node_modules/@material-ui/core/esm/TabScrollButton/index.js","./TextField":"node_modules/@material-ui/core/esm/TextField/index.js","./TextareaAutosize":"node_modules/@material-ui/core/esm/TextareaAutosize/index.js","./Toolbar":"node_modules/@material-ui/core/esm/Toolbar/index.js","./Tooltip":"node_modules/@material-ui/core/esm/Tooltip/index.js","./Typography":"node_modules/@material-ui/core/esm/Typography/index.js","./Unstable_TrapFocus":"node_modules/@material-ui/core/esm/Unstable_TrapFocus/index.js","./useMediaQuery":"node_modules/@material-ui/core/esm/useMediaQuery/index.js","./useScrollTrigger":"node_modules/@material-ui/core/esm/useScrollTrigger/index.js","./withMobileDialog":"node_modules/@material-ui/core/esm/withMobileDialog/index.js","./withWidth":"node_modules/@material-ui/core/esm/withWidth/index.js","./Zoom":"node_modules/@material-ui/core/esm/Zoom/index.js"}],"src/values/theme.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = TodoList;
+exports.default = void 0;
+
+var _core = require("@material-ui/core");
+
+var theme = (0, _core.createTheme)({
+  palette: {
+    primary: {
+      main: "#6112B0"
+    },
+    textPrimary: {
+      main: "#ffff"
+    },
+    black: {
+      main: "#0000"
+    },
+    secondary: {
+      main: "#430c81"
+    }
+  }
+});
+var _default = theme;
+exports.default = _default;
+},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js"}],"src/components/Title.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _core = require("@material-ui/core");
 
+var _theme = _interopRequireDefault(require("../values/theme"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var theme = (0, _core.createTheme)({
-  palette: {
-    primary: {
-      main: "#6112B0",
-      light: "#430c81",
-      dark: "#0000",
-      contrastText: "#ffff"
-    }
-  }
-});
-var useStyles = (0, _core.makeStyles)({
-  title: {
-    color: theme.palette.primary.contrastText
-  },
-  addBtn: {
-    color: theme.palette.primary.contrastText,
-    backgroundColor: theme.palette.primary.main
-  },
-  centerChild: {
-    display: "flex",
-    justifyContent: "center"
-  }
-});
-
-function Title(_ref) {
-  var className = _ref.className;
+function Title() {
   return /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true,
     xs: 12
   }, /*#__PURE__*/_react.default.createElement(_core.Box, {
     p: 1,
-    bgcolor: theme.palette.primary.main
+    bgcolor: _theme.default.palette.primary.main
+  }, /*#__PURE__*/_react.default.createElement(_core.ThemeProvider, {
+    theme: _theme.default
   }, /*#__PURE__*/_react.default.createElement(_core.Typography, {
     variant: "h6",
     align: "center",
-    className: className
-  }, "TODO APP")));
+    color: "textPrimary"
+  }, "TODO APP"))));
 }
 
-function AddTodo() {
+var _default = Title;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","../values/theme":"src/values/theme.js"}],"node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+},{}],"node_modules/@babel/runtime/helpers/interopRequireWildcard.js":[function(require,module,exports) {
+var _typeof = require("@babel/runtime/helpers/typeof")["default"];
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+    return {
+      "default": obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj["default"] = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+module.exports = _interopRequireWildcard;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+},{"@babel/runtime/helpers/typeof":"node_modules/@babel/runtime/helpers/typeof.js"}],"node_modules/@material-ui/icons/utils/createSvgIcon.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function get() {
+    return _utils.createSvgIcon;
+  }
+});
+
+var _utils = require("@material-ui/core/utils");
+},{"@material-ui/core/utils":"node_modules/@material-ui/core/esm/utils/index.js"}],"node_modules/@material-ui/icons/CheckCircleRounded.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29L5.7 12.7a.9959.9959 0 010-1.41c.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"
+}), 'CheckCircleRounded');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"node_modules/@material-ui/icons/CheckCircleOutlined.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"
+}), 'CheckCircleOutlined');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"node_modules/@material-ui/icons/DeleteRounded.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1z"
+}), 'DeleteRounded');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"node_modules/@material-ui/icons/CreateRounded.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M3 17.46v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L17.81 9.94l-3.75-3.75L3.15 17.1c-.1.1-.15.22-.15.36zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+}), 'CreateRounded');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"src/components/TodoRow.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = TodoRow;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _core = require("@material-ui/core");
+
+var _theme = _interopRequireDefault(require("../values/theme"));
+
+var _CheckCircleRounded = _interopRequireDefault(require("@material-ui/icons/CheckCircleRounded"));
+
+var _CheckCircleOutlined = _interopRequireDefault(require("@material-ui/icons/CheckCircleOutlined"));
+
+var _DeleteRounded = _interopRequireDefault(require("@material-ui/icons/DeleteRounded"));
+
+var _CreateRounded = _interopRequireDefault(require("@material-ui/icons/CreateRounded"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function TodoRow(_ref) {
+  var message = _ref.message;
+  return /*#__PURE__*/_react.default.createElement(_core.Box, {
+    width: "80vw"
+  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    container: true,
+    alignItems: "center"
+  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    item: true,
+    xs: 1
+  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    container: true,
+    justifyContent: "center"
+  }, /*#__PURE__*/_react.default.createElement(_core.ThemeProvider, {
+    theme: _theme.default
+  }, /*#__PURE__*/_react.default.createElement(_core.FormControlLabel, {
+    control: /*#__PURE__*/_react.default.createElement(_core.Checkbox, {
+      icon: /*#__PURE__*/_react.default.createElement(_CheckCircleOutlined.default, {
+        color: "primary"
+      }),
+      checkedIcon: /*#__PURE__*/_react.default.createElement(_CheckCircleRounded.default, {
+        color: "primary"
+      }),
+      name: "check"
+    })
+  })))), /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    item: true,
+    xs: 9
+  }, message), /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    item: true,
+    xs: 1
+  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    container: true,
+    justifyContent: "space-around"
+  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    item: true
+  }, /*#__PURE__*/_react.default.createElement(_DeleteRounded.default, {
+    style: {
+      cursor: "pointer"
+    }
+  })), /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    item: true
+  }, /*#__PURE__*/_react.default.createElement(_CreateRounded.default, {
+    style: {
+      cursor: "pointer"
+    }
+  }))))));
+}
+},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","../values/theme":"src/values/theme.js","@material-ui/icons/CheckCircleRounded":"node_modules/@material-ui/icons/CheckCircleRounded.js","@material-ui/icons/CheckCircleOutlined":"node_modules/@material-ui/icons/CheckCircleOutlined.js","@material-ui/icons/DeleteRounded":"node_modules/@material-ui/icons/DeleteRounded.js","@material-ui/icons/CreateRounded":"node_modules/@material-ui/icons/CreateRounded.js"}],"src/components/AddTodo.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = AddTodo;
+
+var _core = require("@material-ui/core");
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _theme = _interopRequireDefault(require("../values/theme.js"));
+
+var _TodoRow = _interopRequireDefault(require("./TodoRow"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var useStyles = (0, _core.makeStyles)({
+  addBtn: {
+    backgroundColor: _theme.default.palette.primary.main
+  }
+});
+
+function AddTodo(_ref) {
+  var onAddTodo = _ref.onAddTodo;
+  var classes = useStyles();
+  var msgRef = (0, _react.useRef)(null);
+
+  var handleAddTodo = function handleAddTodo(e) {
+    e.preventDefault();
+    onAddTodo(msgRef.current.value);
+    msgRef.current.value = null;
+  };
+
   return /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true,
     xs: 6
@@ -84045,29 +84326,118 @@ function AddTodo() {
     id: "standard-basic",
     label: "Add new todo",
     fullWidth: true,
-    variant: "outlined"
+    variant: "outlined",
+    inputRef: msgRef
   }), /*#__PURE__*/_react.default.createElement(_core.Box, {
-    m: "8px 0",
-    className: useStyles().centerChild
+    m: "8px 0"
+  }, /*#__PURE__*/_react.default.createElement(_core.ThemeProvider, {
+    theme: _theme.default
+  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    container: true,
+    justifyContent: "center"
+  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    item: true
   }, /*#__PURE__*/_react.default.createElement(_core.Button, {
+    type: "submit",
     variant: "contained",
-    className: useStyles().addBtn
-  }, "ADD")))));
+    color: "primary",
+    onClick: handleAddTodo
+  }, "ADD"))))))));
+}
+},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js","react":"node_modules/react/index.js","../values/theme.js":"src/values/theme.js","./TodoRow":"src/components/TodoRow.jsx"}],"src/services/todo.service.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addToLocalStorage = addToLocalStorage;
+exports.getLocalStorage = getLocalStorage;
+
+function addToLocalStorage(data) {
+  return localStorage.setItem("TodoReactMUI", JSON.stringify(data));
 }
 
+function getLocalStorage() {
+  return JSON.parse(localStorage.getItem("TodoReactMUI"));
+}
+},{}],"src/pages/TodoList.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = TodoList;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _core = require("@material-ui/core");
+
+var _Title = _interopRequireDefault(require("../components/Title"));
+
+var _AddTodo = _interopRequireDefault(require("../components/AddTodo"));
+
+var _todo = require("../services/todo.service");
+
+var _TodoRow = _interopRequireDefault(require("../components/TodoRow"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function TodoList() {
-  var _useStyles = useStyles(),
-      title = _useStyles.title;
+  var _useState = (0, _react.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  (0, _react.useEffect)(function () {
+    if (data.length && (0, _todo.getLocalStorage)() != data) {
+      return (0, _todo.addToLocalStorage)(data);
+    }
+
+    setData(_todo.getLocalStorage);
+  }, [data]);
+
+  var addData = function addData(newMessage) {
+    setData([].concat(_toConsumableArray(data), [newMessage]));
+  };
 
   return /*#__PURE__*/_react.default.createElement(_core.Grid, {
     container: true,
     justifyContent: "center",
     spacing: 2
-  }, /*#__PURE__*/_react.default.createElement(Title, {
-    className: title
-  }), /*#__PURE__*/_react.default.createElement(AddTodo, null));
+  }, /*#__PURE__*/_react.default.createElement(_Title.default, null), /*#__PURE__*/_react.default.createElement(_AddTodo.default, {
+    onAddTodo: addData
+  }), data.map(function (message, idx) {
+    return /*#__PURE__*/_react.default.createElement(_TodoRow.default, {
+      key: idx,
+      message: message
+    });
+  }));
 }
-},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","../components/Title":"src/components/Title.jsx","../components/AddTodo":"src/components/AddTodo.jsx","../services/todo.service":"src/services/todo.service.js","../components/TodoRow":"src/components/TodoRow.jsx"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -84146,14 +84516,14 @@ var _reactDom = require("react-dom");
 
 var _react = _interopRequireDefault(require("react"));
 
-var _TodoList = _interopRequireDefault(require("./components/TodoList"));
+var _TodoList = _interopRequireDefault(require("./pages/TodoList"));
 
 require("./style/index.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _reactDom.render)( /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_TodoList.default, null)), document.querySelector("#root"));
-},{"react-dom":"node_modules/react-dom/index.js","react":"node_modules/react/index.js","./components/TodoList":"src/components/TodoList.jsx","./style/index.css":"src/style/index.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react-dom":"node_modules/react-dom/index.js","react":"node_modules/react/index.js","./pages/TodoList":"src/pages/TodoList.jsx","./style/index.css":"src/style/index.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -84181,7 +84551,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49434" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58116" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
