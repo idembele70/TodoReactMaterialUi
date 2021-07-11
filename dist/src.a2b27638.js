@@ -84007,41 +84007,7 @@ var theme = (0, _core.createTheme)({
 });
 var _default = theme;
 exports.default = _default;
-},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js"}],"src/components/Title.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _core = require("@material-ui/core");
-
-var _theme = _interopRequireDefault(require("../values/theme"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Title() {
-  return /*#__PURE__*/_react.default.createElement(_core.Grid, {
-    item: true,
-    xs: 12
-  }, /*#__PURE__*/_react.default.createElement(_core.Box, {
-    p: 1,
-    bgcolor: _theme.default.palette.primary.main
-  }, /*#__PURE__*/_react.default.createElement(_core.ThemeProvider, {
-    theme: _theme.default
-  }, /*#__PURE__*/_react.default.createElement(_core.Typography, {
-    variant: "h6",
-    align: "center",
-    color: "textPrimary"
-  }, "TODO APP"))));
-}
-
-var _default = Title;
-exports.default = _default;
-},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","../values/theme":"src/values/theme.js"}],"src/components/AddTodo.jsx":[function(require,module,exports) {
+},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js"}],"src/components/AddTodo.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84101,26 +84067,41 @@ function AddTodo(_ref) {
     onClick: handleAddTodo
   }, "ADD"))))))));
 }
-},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js","react":"node_modules/react/index.js","../values/theme.js":"src/values/theme.js"}],"src/services/todo.service.js":[function(require,module,exports) {
+},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js","react":"node_modules/react/index.js","../values/theme.js":"src/values/theme.js"}],"src/components/Title.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.addToLocalStorage = addToLocalStorage;
-exports.getLocalStorage = getLocalStorage;
+exports.default = void 0;
 
-function addToLocalStorage(data) {
-  data.map(function (todo, idx) {
-    return todo.id = idx;
-  });
-  return localStorage.setItem("TodoReactMUI", JSON.stringify(data));
+var _react = _interopRequireDefault(require("react"));
+
+var _core = require("@material-ui/core");
+
+var _theme = _interopRequireDefault(require("../values/theme"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Title() {
+  return /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    item: true,
+    xs: 12
+  }, /*#__PURE__*/_react.default.createElement(_core.Box, {
+    p: 1,
+    bgcolor: _theme.default.palette.primary.main
+  }, /*#__PURE__*/_react.default.createElement(_core.ThemeProvider, {
+    theme: _theme.default
+  }, /*#__PURE__*/_react.default.createElement(_core.Typography, {
+    variant: "h6",
+    align: "center",
+    color: "textPrimary"
+  }, "TODO APP"))));
 }
 
-function getLocalStorage() {
-  return JSON.parse(localStorage.getItem("TodoReactMUI"));
-}
-},{}],"node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
+var _default = Title;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","../values/theme":"src/values/theme.js"}],"node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
     "default": obj
@@ -84323,26 +84304,51 @@ var _DeleteRounded = _interopRequireDefault(require("@material-ui/icons/DeleteRo
 
 var _CheckCircle = _interopRequireDefault(require("@material-ui/icons/CheckCircle"));
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _theme = _interopRequireDefault(require("../values/theme"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function TodoRow(_ref) {
   var message = _ref.message,
       id = _ref.id,
+      editable = _ref.editable,
+      done = _ref.done,
       onDelete = _ref.onDelete,
-      editable = _ref.editable;
+      onEditTodo = _ref.onEditTodo,
+      onDone = _ref.onDone;
+  var newMessage = (0, _react.useRef)(message);
+  var isDone = (0, _react.useRef)(done);
 
   var handleDelete = function handleDelete(e) {
     var _e$target = e.target,
         id = _e$target.id,
         parentElement = _e$target.parentElement;
-    if (id) onDelete(id);else onDelete(parentElement.id);
+    if (id) return onDelete(id);
+    return onDelete(parentElement.id);
   };
 
-  var handleEdit = function handleEdit(e) {};
+  var handleEdit = function handleEdit(e) {
+    e.preventDefault();
+    var _e$target2 = e.target,
+        id = _e$target2.id,
+        parentElement = _e$target2.parentElement;
+    if (id) return onEditTodo(id, newMessage.current ? newMessage.current.value : "");
+    return onEditTodo(parentElement.id, newMessage.current ? newMessage.current.value : "");
+  };
+
+  var handleDone = function handleDone(e) {
+    var _e$target3 = e.target,
+        id = _e$target3.id,
+        parentElement = _e$target3.parentElement;
+    if (id) return onDone(id);
+    onDone(parentElement.id);
+  };
 
   return /*#__PURE__*/_react.default.createElement(_core.Box, {
     width: "80vw"
@@ -84358,11 +84364,15 @@ function TodoRow(_ref) {
   }, /*#__PURE__*/_react.default.createElement(_core.ThemeProvider, {
     theme: _theme.default
   }, /*#__PURE__*/_react.default.createElement(_core.FormControlLabel, {
+    onClick: handleDone,
+    inputRef: isDone,
     control: /*#__PURE__*/_react.default.createElement(_core.Checkbox, {
       icon: /*#__PURE__*/_react.default.createElement(_CheckCircleOutlined.default, {
+        id: id,
         color: "primary"
       }),
       checkedIcon: /*#__PURE__*/_react.default.createElement(_CheckCircleRounded.default, {
+        id: id,
         color: "primary"
       }),
       name: "check"
@@ -84370,7 +84380,17 @@ function TodoRow(_ref) {
   })))), /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true,
     xs: 9
-  }, message), /*#__PURE__*/_react.default.createElement(_core.Grid, {
+  }, editable ? /*#__PURE__*/_react.default.createElement("form", {
+    id: id + "",
+    onSubmit: handleEdit,
+    autoComplete: "off"
+  }, /*#__PURE__*/_react.default.createElement(_core.TextField, {
+    id: id + "",
+    label: "Update your todo",
+    defaultValue: message,
+    inputRef: newMessage,
+    variant: "filled"
+  })) : message), /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true,
     xs: 1
   }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
@@ -84393,13 +84413,33 @@ function TodoRow(_ref) {
     },
     onClick: handleEdit
   }) : /*#__PURE__*/_react.default.createElement(_CreateRounded.default, {
+    id: id,
     style: {
       cursor: "pointer"
     },
     onClick: handleEdit
   }))))));
 }
-},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js","@material-ui/icons/CheckCircleOutlined":"node_modules/@material-ui/icons/CheckCircleOutlined.js","@material-ui/icons/CheckCircleRounded":"node_modules/@material-ui/icons/CheckCircleRounded.js","@material-ui/icons/CreateRounded":"node_modules/@material-ui/icons/CreateRounded.js","@material-ui/icons/DeleteRounded":"node_modules/@material-ui/icons/DeleteRounded.js","@material-ui/icons/CheckCircle":"node_modules/@material-ui/icons/CheckCircle.js","react":"node_modules/react/index.js","../values/theme":"src/values/theme.js"}],"src/pages/TodoList.jsx":[function(require,module,exports) {
+},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js","@material-ui/icons/CheckCircleOutlined":"node_modules/@material-ui/icons/CheckCircleOutlined.js","@material-ui/icons/CheckCircleRounded":"node_modules/@material-ui/icons/CheckCircleRounded.js","@material-ui/icons/CreateRounded":"node_modules/@material-ui/icons/CreateRounded.js","@material-ui/icons/DeleteRounded":"node_modules/@material-ui/icons/DeleteRounded.js","@material-ui/icons/CheckCircle":"node_modules/@material-ui/icons/CheckCircle.js","react":"node_modules/react/index.js","../values/theme":"src/values/theme.js"}],"src/services/todo.service.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addToLocalStorage = addToLocalStorage;
+exports.getLocalStorage = getLocalStorage;
+
+function addToLocalStorage(data) {
+  data.map(function (todo, idx) {
+    return todo.id = idx;
+  });
+  return localStorage.setItem("TodoReactMUI", JSON.stringify(data));
+}
+
+function getLocalStorage() {
+  return JSON.parse(localStorage.getItem("TodoReactMUI"));
+}
+},{}],"src/pages/TodoList.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84407,17 +84447,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = TodoList;
 
-var _react = _interopRequireWildcard(require("react"));
-
 var _core = require("@material-ui/core");
 
-var _Title = _interopRequireDefault(require("../components/Title"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _AddTodo = _interopRequireDefault(require("../components/AddTodo"));
 
-var _todo = require("../services/todo.service");
+var _Title = _interopRequireDefault(require("../components/Title"));
 
 var _TodoRow = _interopRequireDefault(require("../components/TodoRow"));
+
+var _todo = require("../services/todo.service");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -84446,31 +84486,68 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function TodoList() {
-  var _useState = (0, _react.useState)([]),
+  var _useState = (0, _react.useState)((0, _todo.getLocalStorage)()),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
 
   (0, _react.useEffect)(function () {
-    if (data.length && (0, _todo.getLocalStorage)() != data) {
-      return (0, _todo.addToLocalStorage)(data);
-    } else if ((0, _todo.getLocalStorage)()) return setData(_todo.getLocalStorage);
+    return console.log(data);
   }, [data]);
 
   var addData = function addData(message) {
-    setData([].concat(_toConsumableArray(data), [{
+    var newData = [].concat(_toConsumableArray(data), [{
       message: message,
-      id: data.length
-    }]));
+      id: data.length,
+      editable: false,
+      done: false
+    }]);
+    setData(newData);
+    (0, _todo.addToLocalStorage)(newData);
   };
 
   var deleteOneTodo = function deleteOneTodo(todoId) {
-    console.log(todoId);
-    setData(function (data) {
-      return data.filter(function (todo) {
-        return todo.id != todoId;
-      });
+    var newData = [];
+    data.forEach(function (todo) {
+      return todo.id != todoId ? newData.push(todo) : null;
     });
+    setData(newData);
+    (0, _todo.addToLocalStorage)(newData);
+  };
+
+  var editOneTodo = function editOneTodo(todoId, newValue) {
+    var todo = data.find(function (todo) {
+      return todo.id == todoId;
+    });
+    todo.editable = !todo.editable;
+    var newData = [];
+
+    if (todo.editable) {
+      data.forEach(function (t) {
+        return t.id != todoId ? newData.push(t) : newData.push(todo);
+      });
+    } else {
+      if (newValue) todo.message = newValue;
+      data.forEach(function (t) {
+        return t.id != todoId ? newData.push(t) : newData.push(todo);
+      });
+    }
+
+    (0, _todo.addToLocalStorage)(newData);
+    setData(newData);
+  };
+
+  var doneOneTodo = function doneOneTodo(todoId) {
+    var todo = data.find(function (t) {
+      return t.id == todoId;
+    });
+    todo.done = !todo.done;
+    var newData = [];
+    data.forEach(function (t) {
+      return t.id == todoId ? newData.push(todo) : newData.push(t);
+    });
+    (0, _todo.addToLocalStorage)(newData);
+    setData(newData);
   };
 
   return /*#__PURE__*/_react.default.createElement(_core.Grid, {
@@ -84481,17 +84558,20 @@ function TodoList() {
     onAddTodo: addData
   }), data.map(function (_ref) {
     var message = _ref.message,
-        id = _ref.id;
+        id = _ref.id,
+        editable = _ref.editable;
     return /*#__PURE__*/_react.default.createElement(_TodoRow.default, {
       key: id,
       message: message,
       id: id,
-      editable: false,
-      onDelete: deleteOneTodo
+      editable: editable,
+      onDelete: deleteOneTodo,
+      onEditTodo: editOneTodo,
+      onDone: doneOneTodo
     });
   }));
 }
-},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","../components/Title":"src/components/Title.jsx","../components/AddTodo":"src/components/AddTodo.jsx","../services/todo.service":"src/services/todo.service.js","../components/TodoRow":"src/components/TodoRow.jsx"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js","react":"node_modules/react/index.js","../components/AddTodo":"src/components/AddTodo.jsx","../components/Title":"src/components/Title.jsx","../components/TodoRow":"src/components/TodoRow.jsx","../services/todo.service":"src/services/todo.service.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -84605,7 +84685,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58116" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60367" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
