@@ -11,18 +11,24 @@ export default function TodoList() {
     if (data.length && getLocalStorage() != data) {
       return addToLocalStorage(data);
     }
-    setData(getLocalStorage)
-
+    else if (getLocalStorage()) return setData(getLocalStorage)
   }, [data]
   )
-  const addData = (newMessage) => {
-    setData([...data, newMessage])
+  const addData = (message) => {
+    setData([...data, { message, id: data.length }])
+  }
+
+  const deleteOneTodo = (todoId) => {
+    console.log(todoId)
+    setData(
+      data => data.filter(todo => todo.id != todoId)
+    )
   }
   return <Grid container justifyContent="center" spacing={2} >
     <Title />
     <AddTodo onAddTodo={addData} />
     {data.map(
-      (message, idx) => <TodoRow key={idx} message={message} />
+      ({ message, id }) => <TodoRow key={id} message={message} id={id} editable={false} onDelete={deleteOneTodo} />
     )}
   </Grid>
 }

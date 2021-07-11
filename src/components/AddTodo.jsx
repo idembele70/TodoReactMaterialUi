@@ -1,16 +1,7 @@
 import { Box, Button, Grid, makeStyles, TextField, ThemeProvider } from "@material-ui/core"
 import React, { useRef } from "react"
 import theme from "../values/theme.js"
-import TodoRow from "./TodoRow"
-const useStyles = makeStyles(
-  {
-    addBtn: {
-      backgroundColor: theme.palette.primary.main,
-    }
-  }
-)
 export default function AddTodo({ onAddTodo }) {
-  const classes = useStyles()
   const msgRef = useRef(null)
   const handleAddTodo = (e) => {
     e.preventDefault()

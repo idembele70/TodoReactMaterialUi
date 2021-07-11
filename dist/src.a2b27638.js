@@ -84041,7 +84041,86 @@ function Title() {
 
 var _default = Title;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","../values/theme":"src/values/theme.js"}],"node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","../values/theme":"src/values/theme.js"}],"src/components/AddTodo.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = AddTodo;
+
+var _core = require("@material-ui/core");
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _theme = _interopRequireDefault(require("../values/theme.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function AddTodo(_ref) {
+  var onAddTodo = _ref.onAddTodo;
+  var msgRef = (0, _react.useRef)(null);
+
+  var handleAddTodo = function handleAddTodo(e) {
+    e.preventDefault();
+    onAddTodo(msgRef.current.value);
+    msgRef.current.value = null;
+  };
+
+  return /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    item: true,
+    xs: 6
+  }, /*#__PURE__*/_react.default.createElement(_core.Box, {
+    boxShadow: 2,
+    p: 4
+  }, /*#__PURE__*/_react.default.createElement("form", {
+    autoComplete: "off"
+  }, /*#__PURE__*/_react.default.createElement(_core.TextField, {
+    id: "standard-basic",
+    label: "Add new todo",
+    fullWidth: true,
+    variant: "outlined",
+    inputRef: msgRef
+  }), /*#__PURE__*/_react.default.createElement(_core.Box, {
+    m: "8px 0"
+  }, /*#__PURE__*/_react.default.createElement(_core.ThemeProvider, {
+    theme: _theme.default
+  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    container: true,
+    justifyContent: "center"
+  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
+    item: true
+  }, /*#__PURE__*/_react.default.createElement(_core.Button, {
+    type: "submit",
+    variant: "contained",
+    color: "primary",
+    onClick: handleAddTodo
+  }, "ADD"))))))));
+}
+},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js","react":"node_modules/react/index.js","../values/theme.js":"src/values/theme.js"}],"src/services/todo.service.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.addToLocalStorage = addToLocalStorage;
+exports.getLocalStorage = getLocalStorage;
+
+function addToLocalStorage(data) {
+  data.map(function (todo, idx) {
+    return todo.id = idx;
+  });
+  return localStorage.setItem("TodoReactMUI", JSON.stringify(data));
+}
+
+function getLocalStorage() {
+  return JSON.parse(localStorage.getItem("TodoReactMUI"));
+}
+},{}],"node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
     "default": obj
@@ -84119,28 +84198,7 @@ Object.defineProperty(exports, "default", {
 });
 
 var _utils = require("@material-ui/core/utils");
-},{"@material-ui/core/utils":"node_modules/@material-ui/core/esm/utils/index.js"}],"node_modules/@material-ui/icons/CheckCircleRounded.js":[function(require,module,exports) {
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
-
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
-  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29L5.7 12.7a.9959.9959 0 010-1.41c.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"
-}), 'CheckCircleRounded');
-
-exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"node_modules/@material-ui/icons/CheckCircleOutlined.js":[function(require,module,exports) {
+},{"@material-ui/core/utils":"node_modules/@material-ui/core/esm/utils/index.js"}],"node_modules/@material-ui/icons/CheckCircleOutlined.js":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -84161,7 +84219,7 @@ var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("pa
 }), 'CheckCircleOutlined');
 
 exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"node_modules/@material-ui/icons/DeleteRounded.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"node_modules/@material-ui/icons/CheckCircleRounded.js":[function(require,module,exports) {
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -84178,8 +84236,8 @@ var React = _interopRequireWildcard(require("react"));
 var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
 
 var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
-  d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1z"
-}), 'DeleteRounded');
+  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29L5.7 12.7a.9959.9959 0 010-1.41c.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"
+}), 'CheckCircleRounded');
 
 exports.default = _default;
 },{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"node_modules/@material-ui/icons/CreateRounded.js":[function(require,module,exports) {
@@ -84203,6 +84261,48 @@ var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("pa
 }), 'CreateRounded');
 
 exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"node_modules/@material-ui/icons/DeleteRounded.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1z"
+}), 'DeleteRounded');
+
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"node_modules/@material-ui/icons/CheckCircle.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _createSvgIcon = _interopRequireDefault(require("./utils/createSvgIcon"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+}), 'CheckCircle');
+
+exports.default = _default;
 },{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"src/components/TodoRow.jsx":[function(require,module,exports) {
 "use strict";
 
@@ -84211,24 +84311,39 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = TodoRow;
 
-var _react = _interopRequireDefault(require("react"));
-
 var _core = require("@material-ui/core");
-
-var _theme = _interopRequireDefault(require("../values/theme"));
-
-var _CheckCircleRounded = _interopRequireDefault(require("@material-ui/icons/CheckCircleRounded"));
 
 var _CheckCircleOutlined = _interopRequireDefault(require("@material-ui/icons/CheckCircleOutlined"));
 
-var _DeleteRounded = _interopRequireDefault(require("@material-ui/icons/DeleteRounded"));
+var _CheckCircleRounded = _interopRequireDefault(require("@material-ui/icons/CheckCircleRounded"));
 
 var _CreateRounded = _interopRequireDefault(require("@material-ui/icons/CreateRounded"));
+
+var _DeleteRounded = _interopRequireDefault(require("@material-ui/icons/DeleteRounded"));
+
+var _CheckCircle = _interopRequireDefault(require("@material-ui/icons/CheckCircle"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _theme = _interopRequireDefault(require("../values/theme"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function TodoRow(_ref) {
-  var message = _ref.message;
+  var message = _ref.message,
+      id = _ref.id,
+      onDelete = _ref.onDelete,
+      editable = _ref.editable;
+
+  var handleDelete = function handleDelete(e) {
+    var _e$target = e.target,
+        id = _e$target.id,
+        parentElement = _e$target.parentElement;
+    if (id) onDelete(id);else onDelete(parentElement.id);
+  };
+
+  var handleEdit = function handleEdit(e) {};
+
   return /*#__PURE__*/_react.default.createElement(_core.Box, {
     width: "80vw"
   }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
@@ -84264,103 +84379,27 @@ function TodoRow(_ref) {
   }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true
   }, /*#__PURE__*/_react.default.createElement(_DeleteRounded.default, {
+    id: id,
     style: {
       cursor: "pointer"
-    }
+    },
+    onClick: handleDelete
   })), /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true
-  }, /*#__PURE__*/_react.default.createElement(_CreateRounded.default, {
+  }, editable ? /*#__PURE__*/_react.default.createElement(_CheckCircle.default, {
+    id: id,
     style: {
       cursor: "pointer"
-    }
+    },
+    onClick: handleEdit
+  }) : /*#__PURE__*/_react.default.createElement(_CreateRounded.default, {
+    style: {
+      cursor: "pointer"
+    },
+    onClick: handleEdit
   }))))));
 }
-},{"react":"node_modules/react/index.js","@material-ui/core":"node_modules/@material-ui/core/esm/index.js","../values/theme":"src/values/theme.js","@material-ui/icons/CheckCircleRounded":"node_modules/@material-ui/icons/CheckCircleRounded.js","@material-ui/icons/CheckCircleOutlined":"node_modules/@material-ui/icons/CheckCircleOutlined.js","@material-ui/icons/DeleteRounded":"node_modules/@material-ui/icons/DeleteRounded.js","@material-ui/icons/CreateRounded":"node_modules/@material-ui/icons/CreateRounded.js"}],"src/components/AddTodo.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = AddTodo;
-
-var _core = require("@material-ui/core");
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _theme = _interopRequireDefault(require("../values/theme.js"));
-
-var _TodoRow = _interopRequireDefault(require("./TodoRow"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-var useStyles = (0, _core.makeStyles)({
-  addBtn: {
-    backgroundColor: _theme.default.palette.primary.main
-  }
-});
-
-function AddTodo(_ref) {
-  var onAddTodo = _ref.onAddTodo;
-  var classes = useStyles();
-  var msgRef = (0, _react.useRef)(null);
-
-  var handleAddTodo = function handleAddTodo(e) {
-    e.preventDefault();
-    onAddTodo(msgRef.current.value);
-    msgRef.current.value = null;
-  };
-
-  return /*#__PURE__*/_react.default.createElement(_core.Grid, {
-    item: true,
-    xs: 6
-  }, /*#__PURE__*/_react.default.createElement(_core.Box, {
-    boxShadow: 2,
-    p: 4
-  }, /*#__PURE__*/_react.default.createElement("form", {
-    autoComplete: "off"
-  }, /*#__PURE__*/_react.default.createElement(_core.TextField, {
-    id: "standard-basic",
-    label: "Add new todo",
-    fullWidth: true,
-    variant: "outlined",
-    inputRef: msgRef
-  }), /*#__PURE__*/_react.default.createElement(_core.Box, {
-    m: "8px 0"
-  }, /*#__PURE__*/_react.default.createElement(_core.ThemeProvider, {
-    theme: _theme.default
-  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
-    container: true,
-    justifyContent: "center"
-  }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
-    item: true
-  }, /*#__PURE__*/_react.default.createElement(_core.Button, {
-    type: "submit",
-    variant: "contained",
-    color: "primary",
-    onClick: handleAddTodo
-  }, "ADD"))))))));
-}
-},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js","react":"node_modules/react/index.js","../values/theme.js":"src/values/theme.js","./TodoRow":"src/components/TodoRow.jsx"}],"src/services/todo.service.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.addToLocalStorage = addToLocalStorage;
-exports.getLocalStorage = getLocalStorage;
-
-function addToLocalStorage(data) {
-  return localStorage.setItem("TodoReactMUI", JSON.stringify(data));
-}
-
-function getLocalStorage() {
-  return JSON.parse(localStorage.getItem("TodoReactMUI"));
-}
-},{}],"src/pages/TodoList.jsx":[function(require,module,exports) {
+},{"@material-ui/core":"node_modules/@material-ui/core/esm/index.js","@material-ui/icons/CheckCircleOutlined":"node_modules/@material-ui/icons/CheckCircleOutlined.js","@material-ui/icons/CheckCircleRounded":"node_modules/@material-ui/icons/CheckCircleRounded.js","@material-ui/icons/CreateRounded":"node_modules/@material-ui/icons/CreateRounded.js","@material-ui/icons/DeleteRounded":"node_modules/@material-ui/icons/DeleteRounded.js","@material-ui/icons/CheckCircle":"node_modules/@material-ui/icons/CheckCircle.js","react":"node_modules/react/index.js","../values/theme":"src/values/theme.js"}],"src/pages/TodoList.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84415,13 +84454,23 @@ function TodoList() {
   (0, _react.useEffect)(function () {
     if (data.length && (0, _todo.getLocalStorage)() != data) {
       return (0, _todo.addToLocalStorage)(data);
-    }
-
-    setData(_todo.getLocalStorage);
+    } else if ((0, _todo.getLocalStorage)()) return setData(_todo.getLocalStorage);
   }, [data]);
 
-  var addData = function addData(newMessage) {
-    setData([].concat(_toConsumableArray(data), [newMessage]));
+  var addData = function addData(message) {
+    setData([].concat(_toConsumableArray(data), [{
+      message: message,
+      id: data.length
+    }]));
+  };
+
+  var deleteOneTodo = function deleteOneTodo(todoId) {
+    console.log(todoId);
+    setData(function (data) {
+      return data.filter(function (todo) {
+        return todo.id != todoId;
+      });
+    });
   };
 
   return /*#__PURE__*/_react.default.createElement(_core.Grid, {
@@ -84430,10 +84479,15 @@ function TodoList() {
     spacing: 2
   }, /*#__PURE__*/_react.default.createElement(_Title.default, null), /*#__PURE__*/_react.default.createElement(_AddTodo.default, {
     onAddTodo: addData
-  }), data.map(function (message, idx) {
+  }), data.map(function (_ref) {
+    var message = _ref.message,
+        id = _ref.id;
     return /*#__PURE__*/_react.default.createElement(_TodoRow.default, {
-      key: idx,
-      message: message
+      key: id,
+      message: message,
+      id: id,
+      editable: false,
+      onDelete: deleteOneTodo
     });
   }));
 }
