@@ -84314,6 +84314,31 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function useToggleDone(initialValue) {
+  var _useState = (0, _react.useState)(initialValue),
+      _useState2 = _slicedToArray(_useState, 2),
+      isDone = _useState2[0],
+      setDone = _useState2[1];
+
+  var onToggleDone = function onToggleDone() {
+    return setDone(!isDone);
+  };
+
+  return [isDone, onToggleDone];
+}
+
 function TodoRow(_ref) {
   var message = _ref.message,
       id = _ref.id,
@@ -84323,7 +84348,11 @@ function TodoRow(_ref) {
       onEditTodo = _ref.onEditTodo,
       onDone = _ref.onDone;
   var newMessage = (0, _react.useRef)(message);
-  var isDone = (0, _react.useRef)(done);
+
+  var _useToggleDone = useToggleDone(done),
+      _useToggleDone2 = _slicedToArray(_useToggleDone, 2),
+      isDone = _useToggleDone2[0],
+      onToggleDone = _useToggleDone2[1];
 
   var handleDelete = function handleDelete(e) {
     var _e$target = e.target,
@@ -84343,11 +84372,9 @@ function TodoRow(_ref) {
   };
 
   var handleDone = function handleDone(e) {
-    var _e$target3 = e.target,
-        id = _e$target3.id,
-        parentElement = _e$target3.parentElement;
-    if (id) return onDone(id);
-    onDone(parentElement.id);
+    var name = e.target.name;
+    onToggleDone();
+    if (name) return onDone(name);
   };
 
   return /*#__PURE__*/_react.default.createElement(_core.Box, {
@@ -84365,17 +84392,15 @@ function TodoRow(_ref) {
     theme: _theme.default
   }, /*#__PURE__*/_react.default.createElement(_core.FormControlLabel, {
     onClick: handleDone,
-    inputRef: isDone,
+    checked: isDone,
     control: /*#__PURE__*/_react.default.createElement(_core.Checkbox, {
       icon: /*#__PURE__*/_react.default.createElement(_CheckCircleOutlined.default, {
-        id: id,
         color: "primary"
       }),
       checkedIcon: /*#__PURE__*/_react.default.createElement(_CheckCircleRounded.default, {
-        id: id,
         color: "primary"
       }),
-      name: "check"
+      name: id + " "
     })
   })))), /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true,
@@ -84390,7 +84415,12 @@ function TodoRow(_ref) {
     defaultValue: message,
     inputRef: newMessage,
     variant: "filled"
-  })) : message), /*#__PURE__*/_react.default.createElement(_core.Grid, {
+  })) : /*#__PURE__*/_react.default.createElement(_core.Typography, {
+    variant: "body1",
+    style: {
+      textDecoration: done ? "line-through" : "none"
+    }
+  }, message)), /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true,
     xs: 1
   }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
@@ -84399,7 +84429,7 @@ function TodoRow(_ref) {
   }, /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true
   }, /*#__PURE__*/_react.default.createElement(_DeleteRounded.default, {
-    id: id,
+    id: id + "",
     style: {
       cursor: "pointer"
     },
@@ -84407,13 +84437,13 @@ function TodoRow(_ref) {
   })), /*#__PURE__*/_react.default.createElement(_core.Grid, {
     item: true
   }, editable ? /*#__PURE__*/_react.default.createElement(_CheckCircle.default, {
-    id: id,
+    id: id + "",
     style: {
       cursor: "pointer"
     },
     onClick: handleEdit
   }) : /*#__PURE__*/_react.default.createElement(_CreateRounded.default, {
-    id: id,
+    id: id + "",
     style: {
       cursor: "pointer"
     },
@@ -84492,7 +84522,7 @@ function TodoList() {
       setData = _useState2[1];
 
   (0, _react.useEffect)(function () {
-    return console.log(data);
+    return "";
   }, [data]);
 
   var addData = function addData(message) {
@@ -84559,12 +84589,14 @@ function TodoList() {
   }), data.map(function (_ref) {
     var message = _ref.message,
         id = _ref.id,
-        editable = _ref.editable;
+        editable = _ref.editable,
+        done = _ref.done;
     return /*#__PURE__*/_react.default.createElement(_TodoRow.default, {
       key: id,
       message: message,
       id: id,
       editable: editable,
+      done: done,
       onDelete: deleteOneTodo,
       onEditTodo: editOneTodo,
       onDone: doneOneTodo
@@ -84685,7 +84717,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60367" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56133" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -9,7 +9,7 @@ export default function TodoList() {
   const [data, setData] = useState(getLocalStorage())
 
   useEffect(
-    () => console.log(data), [data]
+    () => "", [data]
   )
 
   const addData = (message) => {
@@ -53,7 +53,11 @@ export default function TodoList() {
     <Title />
     <AddTodo onAddTodo={addData} />
     {data.map(
-      ({ message, id, editable }) => <TodoRow key={id} message={message} id={id} editable={editable} onDelete={deleteOneTodo} onEditTodo={editOneTodo} onDone={doneOneTodo} />
+      ({ message, id, editable, done }) => <TodoRow key={id}
+        message={message} id={id}
+        editable={editable} done={done}
+        onDelete={deleteOneTodo} onEditTodo={editOneTodo}
+        onDone={doneOneTodo} />
     )}
   </Grid>
 }
