@@ -4,7 +4,8 @@
   "description": "Une todolist fait avec react et material dans le but de maitrise ses deux technologies",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build" : "parcel build index.html"
   },
   "keywords": [],
   "author": "",
