@@ -6,7 +6,7 @@ import TodoRow from "../components/TodoRow";
 import { addToLocalStorage, getLocalStorage } from "../services/todo.service";
 
 export default function TodoList() {
-  const [data, setData] = useState(getLocalStorage())
+  const [data, setData] = useState(getLocalStorage()||[])
 
   useEffect(
     () => "", [data]
@@ -49,11 +49,10 @@ export default function TodoList() {
     addToLocalStorage(newData);
     setData(newData);
   }
-  console.log("in todo lsit")
   return <Grid container justifyContent="center" spacing={2}>
     <Title />
     <AddTodo onAddTodo={addData} />
-    {data ? data.map(
+    {data.length ? data.map(
       ({ message, id, editable, done }) => <TodoRow key={id}
         message={message} id={id}
         editable={editable} done={done}
