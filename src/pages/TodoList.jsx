@@ -52,7 +52,7 @@ export default function TodoList() {
   return <Grid container justifyContent="center" spacing={2}>
     <Title />
     <AddTodo onAddTodo={addData} />
-    {data.map(
+    {data.length && data.map(
       ({ message, id, editable, done }) => <TodoRow key={id}
         message={message} id={id}
         editable={editable} done={done}
