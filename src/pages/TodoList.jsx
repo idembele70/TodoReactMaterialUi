@@ -49,6 +49,7 @@ export default function TodoList() {
     addToLocalStorage(newData);
     setData(newData);
   }
+  console.log("in todo lsit")
   return <Grid container justifyContent="center" spacing={2}>
     <Title />
     <AddTodo onAddTodo={addData} />
