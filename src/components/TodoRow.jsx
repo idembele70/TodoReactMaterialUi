@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControlLabel, Grid, ThemeProvider, TextField, Typography } from "@material-ui/core";
+import { Box, Checkbox, FormControlLabel, Grid, ThemeProvider, TextField, Typography,useMediaQuery } from "@material-ui/core";
 import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
 import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 import CreateRoundedIcon from '@material-ui/icons/CreateRounded';
@@ -35,7 +35,7 @@ export default function TodoRow({ message, id, editable, done, onDelete, onEditT
     onToggleDone()
     if (name) return onDone(name)
   }
-
+const isSmallDisplay = useMediaQuery(theme.breakpoints.down('xs'))
   return <Box width={"80vw"}>
     <Grid container alignItems="center">
       <Grid item xs={1}>
@@ -47,7 +47,7 @@ export default function TodoRow({ message, id, editable, done, onDelete, onEditT
           </ThemeProvider>
         </Grid>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={isSmallDisplay ? 7 : 9}>
         {editable ? <form id={id + ""} onSubmit={handleEdit} autoComplete="off">
           <TextField id={id + ""} label="Update your todo" defaultValue={message} inputRef={newMessage} variant="filled" />
         </form>
@@ -55,7 +55,7 @@ export default function TodoRow({ message, id, editable, done, onDelete, onEditT
           <Typography variant="body1" style={{ textDecoration: done ? "line-through" : "none" }}>{message}</Typography>
         }
       </Grid>
-      <Grid item xs={1}>
+      <Grid item xs={isSmallDisplay ? 3 : 1}>
         <Grid container justifyContent="space-around">
           <Grid item>
             <DeleteRoundedIcon id={id + ""} style={{ cursor: "pointer" }} onClick={handleDelete} />

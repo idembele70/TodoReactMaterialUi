@@ -13,7 +13,7 @@ export default function AddTodo({ onAddTodo }) {
     msgRef.current.value = null
   }
 
-  return <Grid item xs={6}>
+  return <Grid item xs={11} sm={6}>
     <Box boxShadow={2} p={4}>
       <form autoComplete="off">
         <TextField id={"standard-"+(error ?"error" : "basic")} error={error} label="Add new todo" fullWidth variant="outlined" inputRef={msgRef} helperText={error ? "this input value cannot be null" : ""} />
