@@ -4,8 +4,8 @@
   "description": "Une todolist fait avec react et material dans le but de maitrise ses deux technologies",
   "main": "index.js",
   "scripts": {
-    "pre-deploy" : "npm run build",
-    "deploy" : "gh-pages -d dist",
+    "pre-deploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },
@@ -16,6 +16,7 @@
     "@material-ui/core": "^4.12.1",
     "@material-ui/icons": "^4.11.2",
     "@types/react": "^17.0.14",
+    "esm": "^3.2.25",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
